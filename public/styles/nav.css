@@ -9,20 +9,20 @@ nav {
   padding-left: 1.5em;
   padding-right: 1.5em;
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   top: 0;
 }
-#write {
-  display: flex;
-  flex-grow: 2;
+a:link {
+  text-decoration: none;
+}
+#writenew {
+  padding-top: 1em;
+  position: relative;
 }
 #arrow-icon {
   color: #8797ca;
   display: flex;
   justify-content: center;
-}
-a:link {
-  text-decoration: none;
 }
 #arrow-icon:hover {
   color: white;
