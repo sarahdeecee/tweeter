@@ -1,0 +1,29 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4056A1;
+  color: white;
+  height: 120px;
+  width: 100%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+}
+#write {
+  display: flex;
+  flex-grow: 2;
+}
+#arrow-icon {
+  color: #8797ca;
+  display: flex;
+  justify-content: center;
+}
+a:hover {
+  color: white;
+}
+#logo {
+  font-family: 'Bungee', cursive;
+}
