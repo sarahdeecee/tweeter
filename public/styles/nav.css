@@ -21,7 +21,10 @@ nav {
   display: flex;
   justify-content: center;
 }
-a:hover {
+a:link {
+  text-decoration: none;
+}
+#arrow-icon:hover {
   color: white;
 }
 #logo {

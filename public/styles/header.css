@@ -12,7 +12,7 @@ header {
 p {
   font-weight: normal;
 }
-h2 {
+h2.name {
   font-weight: normal;
   color: white;
 }
