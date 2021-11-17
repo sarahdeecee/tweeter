@@ -40,7 +40,7 @@ const createTweetElement = tweetObj => {
   const tweetPage = $(`
     <article>
       <header>
-        <span class="username"><img class="profileimg" src="${tweetObj.user.avatars}"> ${tweetObj.user.name}</span>
+        <span class="username"><img class="profileimg" src="${tweetObj.user.avatars}">${tweetObj.user.name}</span>
         <span class="userid">${tweetObj.user.handle}</span>
       </header>
       <p>${tweetObj.content.text}</p>
@@ -53,7 +53,20 @@ const createTweetElement = tweetObj => {
   return tweetPage;
 };
 
+const addNewTweet = event => {
+
+};
 
 $(document).ready(function() {
   renderTweets(data);  
+  $("#posttweet").submit(function( event ) {
+    event.preventDefault();
+    console.log("submit pressed!");
+    const $tweetText = $(event.target.text).serialize();
+    console.log("VAL--->", $tweetText); //text=test
+    $.post('/tweets/', $tweetText).then(() => {
+      console.log("post to tweets", $tweetText);
+    })
+    $('#tweet-text').val('');
+  });
 });
