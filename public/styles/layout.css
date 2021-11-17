@@ -26,9 +26,49 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-left: 5%;
-  margin-right: 5%; 
+  margin: 0% 5% 1em 5%;
 }
 h2 {
   color: #14224e;
+}
+article {
+  width: 100%;
+  background-color: #f4f1ec;
+  border: solid 5px;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+article:hover {
+  box-shadow: 5px 5px #5451494b
+}
+.tweets {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5em 1em 0 1em;
+  font-size: small;
+  border-top: solid 5px;
+}
+p {
+  padding: 0 1em 0 1em;
+}
+.userid {
+  opacity: 50%;
+}
+.username {
+  font-weight:lighter;
+}
+.fas:hover {
+  opacity: 50%;
 }

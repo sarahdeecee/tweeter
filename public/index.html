@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@200;400;600;700&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
@@ -37,19 +37,19 @@
         <p>
           <strong>Write</strong> a new tweet
           <br>
-          <a href="http://www.google.ca"><i id="arrow-icon" class="fas fa-angle-double-down fa-fade"></i></a>
+          <i id="arrow-icon" class="fas fa-angle-double-down fa-fade"></i>
         </p>
       </span>
     </nav>
 
-    <header>
+    <header class="top">
       <div>
         <img src="/images/profile-hex.png"> 
       </div>
       <div>
         <h2 class="name"><strong>Your</strong> Name</h2>
       </div>
-  </header>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
@@ -63,6 +63,30 @@
             <span><output name="counter" class="counter" for="tweet-text">140</output></span>
           </div>
         </form>
+      </section>
+      <section class="tweets">
+        <article>
+          <header>
+            <span class="username"><i class="fas fa-smile"></i> Some Body</span>
+            <span class="userid">@sum1</span>
+          </header>
+          <p>Tweet</p>
+          <footer>
+            <span>10 days ago</span>
+            <span><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
+          </footer>
+        </article>
+        <article>
+          <header>
+            <span class="username"><i class="fas fa-smile"></i> Someone Else</span>
+            <span class="userid">@sum2</span>
+          </header>
+          <p>Tweet</p>
+          <footer>
+            <span>10 days ago</span>
+            <span><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
+          </footer>
+        </article>
       </section>
     </main>
   </body>
