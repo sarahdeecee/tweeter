@@ -41,12 +41,15 @@ nav {
   100% {opacity:1;}
 }
 }*/
-a:link {
-  text-decoration: none;
-}
+
 #writenew {
   padding-top: 1em;
   position: relative;
+  font-size: 12pt;
+}
+#writenew a:link, a:visited {
+  text-decoration: none;
+  color: white;
 }
 #arrow-icon {
   color: #9cd5f6;

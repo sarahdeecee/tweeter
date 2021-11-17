@@ -12,4 +12,6 @@ header.top {
 h2.name {
   font-weight: normal;
   color: white;
+  padding: 0;
+  margin: 0;
 }

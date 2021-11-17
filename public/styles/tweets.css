@@ -33,7 +33,6 @@ footer {
   padding: 0.5em 1em 0 1em;
   font-size: small;
   border-top: solid 5px;
-  user-select: none;
 }
 
 p {
@@ -48,8 +47,11 @@ p {
   font-weight:lighter;
 }
 
+.icons:hover {
+  cursor: pointer;
+}
+
 .fas:hover {
   opacity: 50%;
-  cursor: pointer;
   transition-duration: 0.2s;
 }
