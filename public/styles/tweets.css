@@ -13,7 +13,7 @@ article:hover {
   transition-duration: 0.2s;
 }
 
-.tweets {
+.tweets-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -54,4 +54,8 @@ p {
 .fas:hover {
   opacity: 50%;
   transition-duration: 0.2s;
+}
+
+.profileimg {
+
 }
