@@ -59,13 +59,11 @@ $(document).ready(function() {
 
   $("#posttweet").submit(function(event) {
     const charCount = $(event.target.text).serialize().length - 5;
+    $('#error').empty();
     event.preventDefault();
-    if (!charCount)  {
-      alert("Please enter something");
-      return;
-    } else if (charCount > 140) {
-      alert("Please shorten your thoughts to 140 characters or less!");
-      return;
+    if (errorMsg(charCount)) {
+      return $('#error').append(errorMsg(charCount));
+      // return $('#error').val(errorMsg(charCount));
     }
     addNewTweet(event);
     $(this).find(".counter").text(140);
@@ -81,6 +79,18 @@ $(document).ready(function() {
       $('#tweets-container').empty();
       loadTweets();
     })
+  };
+
+  const errorMsg = function(num) {
+    let message = "";
+    if (!num)  {
+      message = "You forgot to enter some text!"
+    } else if (num > 140) {
+      message = "Please shorten your thoughts to 140 characters or less!";
+    }
+    if (message)  {
+      return `<i class="fas fa-exclamation-triangle"></i> ${message} <i class="fas fa-exclamation-triangle"></i>`;
+    }
   };
 
   // $("#writenew").click(function() {

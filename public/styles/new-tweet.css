@@ -54,3 +54,6 @@ button:hover {
   /* border-top: 5px solid #545149; */
 }
 
+#error {
+  border: 3px solid red;
+}
