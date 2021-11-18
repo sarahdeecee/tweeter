@@ -1,4 +1,4 @@
-nav {
+#navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,65 +11,38 @@ nav {
   position: fixed;
   top: 0;
   z-index: 1;
-  /* opacity: 50%; */
-  /* animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s; */
 }
-/* @keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@-moz-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@-webkit-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@-o-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-
-@-ms-keyframes fadeIn {
-  0% {opacity:0;}
-  100% {opacity:1;}
-}
-}*/
 
 #writenew {
   padding-top: 1em;
   position: relative;
   font-size: 12pt;
+  cursor: pointer;
 }
-#writenew a:link, a:visited {
-  text-decoration: none;
-  color: white;
-}
+
 #arrow-icon {
   color: #9cd5f6;
   display: flex;
   justify-content: center;
 }
-#logo {
+
+#up-arrow {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+  font-size: 40pt;
+}
+
+#logo, a:link, a:visited {
   font-family: 'Bungee', cursive;
+  color: white;
 }
+
 img.profile {
-  width:300px;
-  height:300px;
-  object-fit:cover;
-  border-radius:50%
-}
-img.profilesm {
-  width:50;
-  height:50px;
-  object-fit:cover;
-  border-radius:50%
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%
 }

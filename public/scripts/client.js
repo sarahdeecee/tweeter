@@ -33,7 +33,7 @@ $(document).ready(function() {
         <p class="tweet-text">${escape(tweetObj.content.text)}</p>
         <footer>
           <span>${createdTime}</span>
-          <span class="icons"><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
+          <span class="icons"><i class="fas fa-flag"></i>&nbsp;&nbsp;<i class="fas fa-retweet"></i>&nbsp;&nbsp;<i class="fas fa-heart"></i></span>
         </footer>
       </article>
     `);
@@ -44,9 +44,13 @@ $(document).ready(function() {
     //make a request to /tweets
     //receive array of tweets as JSON
     $.ajax('/tweets', { method: 'GET' })
-    .then(renderTweets);
+    .then(tweetsHTML => {
+      $('#tweets-container').empty();
+      renderTweets(tweetsHTML);
+    });
     $('#error').empty();
     $('#error').hide();
+    $('.new-tweet').hide();
   };
 
   loadTweets();
@@ -61,7 +65,7 @@ $(document).ready(function() {
     }
     event.preventDefault();
     if (errorMsg(charCount)) {
-      return $('#error').append(errorMsg(charCount)).slideDown("slow");
+      return $('#error').append(errorMsg(charCount)).slideDown("fast");
       // return $('#error').append(errorMsg(charCount));
     } else {
       $('#error').hide();
@@ -69,17 +73,33 @@ $(document).ready(function() {
     addNewTweet(event);
     $(this).find(".counter").text(140);
   });
-  
+
+  // Slides down the new tweet section and sets focus when clicking on Nav bar ("Write a new tweet")
+  $("#writenew").on("click", function() {
+    $('.new-tweet').slideDown()
+    $('#tweet-text').focus();
+  })
+
+  // Slides up the new tweet function
+  $("#logo").on("click", function() {
+    $('.new-tweet').slideUp()
+  })
+
+  // Scrolls to the top of the page
+  $("#up-arrow").on("click", function() {
+    $("html, body").animate({scrollTop: 0});
+  })
+
   //Create new Tweet that is called within the Submit Button
   const addNewTweet = function(event) {
     const $tweetText = $(event.target.text).serialize();
     $.post('/tweets', $tweetText).then(() => {
       $('#tweet-text').val(''); //clears textarea
-      $('#tweets-container').empty();
       loadTweets();
     })
   };
 
+  // Returns an error message depending on character count of textarea
   const errorMsg = function(num) {
     let message = "";
     if (!num)  {
@@ -88,17 +108,25 @@ $(document).ready(function() {
       message = "Please shorten your thoughts to 140 characters or less!";
     }
     if (message)  {
-      return `<i class="fas fa-exclamation-triangle"></i> ${message} <i class="fas fa-exclamation-triangle"></i>`;
+      return `<span><i class="fas fa-exclamation-triangle"></i></span><span>${message}</span><span><i class="fas fa-exclamation-triangle"></i></span>`;
     }
   };
 
-  // $("#writenew").click(function() {
-    // const newTweetPos = $("[name='" + $(this).attr('href').replace("#", '') + "']").position();
-    // const tweetsTop = $('article').first().scrollTop();
-    // console.log(`new: ${newTweetPos} tweets: ${tweetsTop}`);
-  //   window.scroll({
-  //     top: 0,
-  //     behavior: "smooth"
-  //   });
-  // });
+  // Navbar fades to 50% opacity when scrolled down (up to top: 400) and back to 100% when scrolled up (top: 0)
+  $(window).bind('scroll', function() {
+    let y = $(this).scrollTop();
+    let opacity = 1;
+    if (y > 50) {
+      $('#up-arrow').fadeIn();
+    } else  {
+      $('#up-arrow').fadeOut();
+    }
+    if (y < 400) {
+      // $('#navbar').fadeIn();
+      opacity = 1 - y / (800);
+    } else {
+      opacity = 0.5;
+    }
+    $('#navbar').css('opacity', opacity);
+  });
 });

@@ -34,15 +34,17 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span id="logo">Tweeter</span>
+      <div id="navbar">
+      <span id="logo"><a href="#top">Tweeter</a></span>
       <span id="writenew">
         <strong>Write</strong> a new tweet
         <br>
-        <a href="#tweet-text"><i id="arrow-icon" class="fas fa-angle-double-down fa-fade"></i></a>
+        <i id="arrow-icon" class="fas fa-angle-double-down fa-fade"></i>
       </span>
+      </div>
     </nav>
 
-    <header class="top">
+    <header class="top" id="top">
       <div>
         <img src="/images/profile-hex.png"> 
       </div>
@@ -54,7 +56,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <!-- <h2>Compose Tweet</h2> -->
         <div id="error"></div>
         <form id="posttweet" action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
@@ -66,6 +68,7 @@
         </form>
       </section>
       <section id="tweets-container"></section>
+      <div><i id="up-arrow" class="fas fa-chevron-circle-up"></i></div>
     </main>
   </body>
 </html>

@@ -8,9 +8,8 @@ header.top {
   align-items: center;
   background-color: #104a73;
   background-image: url('../images/bg-leaves.png');
-  /* position: fixed; */
-  /* top: 0; */
 }
+
 h2.name {
   font-weight: normal;
   color: white;
