@@ -5,7 +5,16 @@
 
   /* Another smartphone breakpoint is maximum width of around 420px */
   @media only screen and (max-width: 420px) {
+    /* short header */
+    /* bigger font */
+    /* up-arrow in middle */
+    body {
+      font-size: 42px;
+    }
     
+    main {
+     
+    }
   }
 
   /* Another tablet breakpoint is maximum width of 1024px */
@@ -15,5 +24,36 @@
 
   /* Laptops / Desktops: minimum width of 1024px */
   @media only screen and (min-width: 1024px) {
+    /* header on left (33%) */
+    /* header fixed */
+    /* main on right */
+    header.top {
+      padding-top: 120px;
+      width: 33%;
+      height: 100%;
+      position: fixed;
+      justify-content: space-evenly;
+    }
     
+    body {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+    }
+    
+    main {
+      width: 100%;
+      margin: 120px 0 0 33%;
+      padding: 1em;
+    }
+    #up-arrow {
+      display: none;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 1;
+      font-size: 64pt;
+      /* right: 31%; */
+      opacity: 50%;
+    }
   }

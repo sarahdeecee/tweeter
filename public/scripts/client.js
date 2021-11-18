@@ -127,6 +127,6 @@ $(document).ready(function() {
     } else {
       opacity = 0.5;
     }
-    $('#navbar').css('opacity', opacity);
+    $('.fadenav').css('opacity', opacity);
   });
 });
