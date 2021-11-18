@@ -23,22 +23,14 @@ $(document).ready(function() {
   };
   //Create Tweet Function to Create dynamically html elements  
   const createTweetElement = function(tweetObj) {
-    const avatar = tweetObj.user.avatars;
-    const username = tweetObj.user.name;
-    const handle = tweetObj.user.handle;
-    const text = tweetObj.content.text;
-    // $("p.tweet-text").text(tweetObj.content.text);
     const createdTime = timeago.format(tweetObj.created_at);;
-    if (typeof tweetObj !== 'object') {
-      console.log('not an object',tweetObj);
-    }
     const tweetPage = $(`
       <article>
         <header>
-          <span class="username"><img class="profileimg" src="${avatar}">${username}</span>
-          <span class="userid">${handle}</span>
+          <span class="username"><img class="profileimg" src="${tweetObj.user.avatars}">${tweetObj.user.name}</span>
+          <span class="userid">${tweetObj.user.handle}</span>
         </header>
-        <p class="tweet-text">${escape(text)}</p>
+        <p class="tweet-text">${escape(tweetObj.content.text)}</p>
         <footer>
           <span>${createdTime}</span>
           <span class="icons"><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
@@ -53,6 +45,8 @@ $(document).ready(function() {
     //receive array of tweets as JSON
     $.ajax('/tweets', { method: 'GET' })
     .then(renderTweets);
+    $('#error').empty();
+    $('#error').hide();
   };
 
   loadTweets();
@@ -60,10 +54,17 @@ $(document).ready(function() {
   $("#posttweet").submit(function(event) {
     const charCount = $(event.target.text).serialize().length - 5;
     $('#error').empty();
+    if ( $('#error').is(":hidden") ) {
+      $('#error').empty();
+    } else {
+      $('#error').hide();
+    }
     event.preventDefault();
     if (errorMsg(charCount)) {
-      return $('#error').append(errorMsg(charCount));
-      // return $('#error').val(errorMsg(charCount));
+      return $('#error').append(errorMsg(charCount)).slideDown("slow");
+      // return $('#error').append(errorMsg(charCount));
+    } else {
+      $('#error').hide();
     }
     addNewTweet(event);
     $(this).find(".counter").text(140);
@@ -73,8 +74,6 @@ $(document).ready(function() {
   const addNewTweet = function(event) {
     const $tweetText = $(event.target.text).serialize();
     $.post('/tweets', $tweetText).then(() => {
-      console.log("post to tweets", $tweetText);
-      // $('#tweets-container').prepend(createTweetElement($tweetText));
       $('#tweet-text').val(''); //clears textarea
       $('#tweets-container').empty();
       loadTweets();
