@@ -15,13 +15,19 @@ $(document).ready(function() {
       $('#tweets-container').prepend($tweet);
     }
   };
-
+  // Function to ensure tweet text is safe
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
   //Create Tweet Function to Create dynamically html elements  
   const createTweetElement = function(tweetObj) {
     const avatar = tweetObj.user.avatars;
     const username = tweetObj.user.name;
     const handle = tweetObj.user.handle;
     const text = tweetObj.content.text;
+    // $("p.tweet-text").text(tweetObj.content.text);
     const createdTime = timeago.format(tweetObj.created_at);;
     if (typeof tweetObj !== 'object') {
       console.log('not an object',tweetObj);
@@ -32,7 +38,7 @@ $(document).ready(function() {
           <span class="username"><img class="profileimg" src="${avatar}">${username}</span>
           <span class="userid">${handle}</span>
         </header>
-        <p>${text}</p>
+        <p class="tweet-text">${escape(text)}</p>
         <footer>
           <span>${createdTime}</span>
           <span class="icons"><i class="fas fa-flag"></i> <i class="fas fa-retweet"></i> <i class="fas fa-heart"></i></span>
@@ -50,7 +56,7 @@ $(document).ready(function() {
   };
 
   loadTweets();
-  
+
   $("#posttweet").submit(function(event) {
     const charCount = $(event.target.text).serialize().length - 5;
     event.preventDefault();
@@ -64,6 +70,7 @@ $(document).ready(function() {
     addNewTweet(event);
     $(this).find(".counter").text(140);
   });
+  
   //Create new Tweet that is called within the Submit Button
   const addNewTweet = function(event) {
     const $tweetText = $(event.target.text).serialize();
