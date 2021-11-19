@@ -6,11 +6,11 @@ I hope you're eggs-sighted to start Tweeting!
 
 ## Running Tweeter
 ### Twitter on a large screen
-!["Tweeter on a large screen"](public/images/screenshot-big.png)
+!["Tweeter on a large screen"](docs/screenshot-big.png)
 ### Twitter on medium screens or tablets
-!["Tweeter on a medium screen"](public/images/screenshot-med.png)
+!["Tweeter on a medium screen"](docs/screenshot-med.png)
 ### Twitter on small screens or mobile
-!["Tweeter on mobile"](public/images/screenshot-mobile.png)
+!["Tweeter on mobile"](docs/screenshot-mobile.png)
 
 ## Features
 
