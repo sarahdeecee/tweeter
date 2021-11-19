@@ -52,8 +52,9 @@
         <img class="profile" src="/images/profile-hex.png"> 
       </div>
       <div>
-        <h2 class="light"><strong>Your</strong> Name</h2>
+        <h2 class="light"><strong>Sarah</strong> Dela Cruz</h2>
       </div>
+      <div><i id="up-arrow" class="fas fa-chevron-circle-up"></i></div>
     </header>
 
     <!-- Page-specific (main) content here -->
@@ -63,7 +64,7 @@
         <div id="error"></div>
         <form id="posttweet" action="/tweets" method="POST">
           <label for="tweet-text"><h2>What are you humming about?</h2></label>
-          <textarea name="text" id="tweet-text" rows="1" minlength="1"></textarea>
+          <textarea name="text" id="tweet-text"></textarea>
           <div id="tweet-below">
             <span><button type="submit">Tweet</button></span>
             <span><output name="counter" class="counter" for="tweet-text">140</output></span>
@@ -71,7 +72,6 @@
         </form>
       </section>
       <section id="tweets-container"></section>
-      <div><i id="up-arrow" class="fas fa-chevron-circle-up"></i></div>
     </main>
   </body>
 </html>

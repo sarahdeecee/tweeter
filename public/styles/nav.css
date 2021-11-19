@@ -31,13 +31,14 @@
 }
 
 #up-arrow {
-  display: none;
+  /* display: none; */
   position: fixed;
   bottom: 10px;
   right: 10px;
   z-index: 1;
   font-size: 40pt;
-  opacity: 75%;
+  opacity: 0;
+  /* opacity: 0.75; */
 }
 
 #logo, a:link, a:visited {

@@ -7,6 +7,7 @@
 
 
 $(document).ready(function() {
+  //Helper functions
 
   //Render Tweets Function Starts here..
   const renderTweets = tweets => {
@@ -39,10 +40,9 @@ $(document).ready(function() {
     `);
     return tweetPage;
   };
-  
+
+  // Load tweets by getting array of tweets from /tweets
   const loadTweets = () => {
-    //make a request to /tweets
-    //receive array of tweets as JSON
     $.ajax('/tweets', { method: 'GET' })
     .then(tweetsHTML => {
       $('#tweets-container').empty();
@@ -52,43 +52,6 @@ $(document).ready(function() {
     $('#error').hide();
     $('.new-tweet').hide();
   };
-
-  loadTweets();
-
-  $("#posttweet").submit(function(event) {
-    const charCount = $(event.target.text).serialize().length - 5;
-    $('#error').empty();
-    if ( $('#error').is(":hidden") ) {
-      $('#error').empty();
-    } else {
-      $('#error').hide();
-    }
-    event.preventDefault();
-    if (errorMsg(charCount)) {
-      return $('#error').append(errorMsg(charCount)).slideDown("fast");
-      // return $('#error').append(errorMsg(charCount));
-    } else {
-      $('#error').hide();
-    }
-    addNewTweet(event);
-    $(this).find(".counter").text(140);
-  });
-
-  // Slides down the new tweet section and sets focus when clicking on Nav bar ("Write a new tweet")
-  $("#writenew").on("click", function() {
-    $('.new-tweet').slideDown();
-    $('#tweet-text').focus();
-  })
-
-  // Slides up the new tweet function
-  $("#logo").on("click", function() {
-    $('.new-tweet').slideUp()
-  })
-
-  // Scrolls to the top of the page
-  $("#up-arrow").on("click", function() {
-    $("html, body").animate({scrollTop: 0});
-  })
 
   //Create new Tweet that is called within the Submit Button
   const addNewTweet = function(event) {
@@ -128,15 +91,55 @@ $(document).ready(function() {
     $('.fadenav').css('opacity', opacity);
   };
 
+  // Upon document loading, load all tweets
+  loadTweets();
+
+  $("#posttweet").submit(function(event) {
+    const charCount = $(event.target.text).serialize().length - 5;
+    $('#error').empty();
+    if ( $('#error').is(":hidden") ) {
+      $('#error').empty();
+    } else {
+      $('#error').hide();
+    }
+    event.preventDefault();
+    if (errorMsg(charCount)) {
+      return $('#error').append(errorMsg(charCount)).slideDown("fast");
+    } else {
+      $('#error').hide();
+    }
+    addNewTweet(event);
+    $(this).find(".counter").text(140);
+  });
+
+  // Slides down the new tweet section and sets focus when clicking on Nav bar ("Write a new tweet")
+  // Slides the new tweet secion up if it's visible
+  $("#writenew").on("click", function() {
+    $('.new-tweet').slideToggle("fast", function() {
+      $('#tweet-text').focus();
+    });
+  })
+
+  // Scrolls to the top of the page
+  $("#up-arrow").on("click", function() {
+    $("html, body").animate({scrollTop: 0});
+  })
+
   // Change navbar opacity and up-arrow opacity upon scrolling
   $(window).bind('scroll', changeNavOpacity, function() {
     let y = $(this).scrollTop();
-    if (y > 50) {
-      $('#up-arrow').fadeIn();
-    } else  {
-      $('#up-arrow').fadeOut();
+    let opacity = 0;
+    if (y >= 50 && y <= 100) {
+      opacity = y / (100) - 50 / 100;
+    } else if (y < 50) {
+      opacity = 0;
+    } else {
+      opacity = 0.75;
     }
+    $('#up-arrow').css('opacity', opacity);
   });
+
+  $(window).bind('scroll', changeNavOpacity);
 
   // update navbar opcaity on resize
   let windowsize = $(window).width();
@@ -148,4 +151,3 @@ $(document).ready(function() {
     $(window).bind('scroll', changeNavOpacity);
   });
 });
-
