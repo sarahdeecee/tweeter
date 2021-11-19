@@ -112,45 +112,40 @@ $(document).ready(function() {
     }
   };
 
-  // Navbar fades to 50% opacity when scrolled down (up to top: 400) and back to 100% when scrolled up (top: 0)
-  $(window).bind('scroll', function() {
-    let y1 = $(this).scrollTop();
-    if (y1 > 50) {
-      $('#up-arrow').fadeIn();
-    } else  {
-      $('#up-arrow').fadeOut();
-    }
+  // Function to change opacity of navbar while scrolling
+  const changeNavOpacity = function() {
+    let y2 = $(this).scrollTop();
+    let opacity = 1;
     if (windowsize < 1024) {
-      let y2 = $(this).scrollTop();
-      let opacity = 1;
       if (y2 < 400) {
         opacity = 1 - y2 / (800);
       } else {
         opacity = 0.5;
       }
-      $('.fadenav').css('opacity', opacity);
+    } else {
+      opacity = 1;
+    }
+    $('.fadenav').css('opacity', opacity);
+  };
+
+  // Change navbar opacity and up-arrow opacity upon scrolling
+  $(window).bind('scroll', changeNavOpacity, function() {
+    let y = $(this).scrollTop();
+    if (y > 50) {
+      $('#up-arrow').fadeIn();
+    } else  {
+      $('#up-arrow').fadeOut();
     }
   });
-  
+
+  // update navbar opcaity on resize
   let windowsize = $(window).width();
   $(window).bind('resize', function() {
     windowsize = $(window).width();
     if (windowsize < 1024) {
       $('.fadenav').css('opacity', 1);
     }
-    $(window).bind('scroll', function() {
-      let y2 = $(this).scrollTop();
-      let opacity = 1;
-      if (windowsize < 1024) {
-        if (y2 < 400) {
-          opacity = 1 - y2 / (800);
-        } else {
-          opacity = 0.5;
-        }
-      } else {
-        opacity = 1;
-      }
-      $('.fadenav').css('opacity', opacity);
-    });
+    $(window).bind('scroll', changeNavOpacity);
   });
 });
+
