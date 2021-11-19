@@ -34,6 +34,7 @@ main {
 h2 {
   color: #104a73;
   text-align: center;
+  margin: 0;
 }
 
 a:link, a:visited {

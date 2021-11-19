@@ -76,7 +76,7 @@ $(document).ready(function() {
 
   // Slides down the new tweet section and sets focus when clicking on Nav bar ("Write a new tweet")
   $("#writenew").on("click", function() {
-    $('.new-tweet').slideDown()
+    $('.new-tweet').slideDown();
     $('#tweet-text').focus();
   })
 
