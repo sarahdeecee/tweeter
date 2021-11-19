@@ -114,19 +114,43 @@ $(document).ready(function() {
 
   // Navbar fades to 50% opacity when scrolled down (up to top: 400) and back to 100% when scrolled up (top: 0)
   $(window).bind('scroll', function() {
-    let y = $(this).scrollTop();
-    let opacity = 1;
-    if (y > 50) {
+    let y1 = $(this).scrollTop();
+    if (y1 > 50) {
       $('#up-arrow').fadeIn();
     } else  {
       $('#up-arrow').fadeOut();
     }
-    if (y < 400) {
-      // $('#navbar').fadeIn();
-      opacity = 1 - y / (800);
-    } else {
-      opacity = 0.5;
+    if (windowsize < 1024) {
+      let y2 = $(this).scrollTop();
+      let opacity = 1;
+      if (y2 < 400) {
+        opacity = 1 - y2 / (800);
+      } else {
+        opacity = 0.5;
+      }
+      $('.fadenav').css('opacity', opacity);
     }
-    $('.fadenav').css('opacity', opacity);
+  });
+  
+  let windowsize = $(window).width();
+  $(window).bind('resize', function() {
+    windowsize = $(window).width();
+    if (windowsize < 1024) {
+      $('.fadenav').css('opacity', 1);
+    }
+    $(window).bind('scroll', function() {
+      let y2 = $(this).scrollTop();
+      let opacity = 1;
+      if (windowsize < 1024) {
+        if (y2 < 400) {
+          opacity = 1 - y2 / (800);
+        } else {
+          opacity = 0.5;
+        }
+      } else {
+        opacity = 1;
+      }
+      $('.fadenav').css('opacity', opacity);
+    });
   });
 });

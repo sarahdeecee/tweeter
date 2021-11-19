@@ -24,9 +24,11 @@
 
   /* Laptops / Desktops: minimum width of 1024px */
   @media only screen and (min-width: 1024px) {
-    /* header on left (33%) */
-    /* header fixed */
-    /* main on right */
+    #navbar {
+      font-size: 42pt;
+      padding: 0;
+    }
+    
     header.top {
       padding-top: 120px;
       width: 33%;
@@ -46,6 +48,7 @@
       margin: 120px 0 0 33%;
       padding: 1em;
     }
+
     #up-arrow {
       display: none;
       position: fixed;
@@ -54,6 +57,14 @@
       z-index: 1;
       font-size: 64pt;
       /* right: 31%; */
-      opacity: 50%;
+    }
+
+    #logo {
+      width: 33%;
+      text-align: center;
+    }
+
+    #writenew {
+      padding-right: 1.5em;
     }
   }

@@ -17,7 +17,7 @@ html {
 body {
   color: #104a73;
   background-color: #bdcdde;
-  font-size: 24px;
+  font-size: 32px;
   font-family: 'Source Sans Pro', Sans-serif;
 }
 
@@ -26,7 +26,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 1em 5% 1em 5%;
+  padding: 1em 5% 1em 5%;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -39,8 +39,4 @@ h2 {
 a:link, a:visited {
   text-decoration: none;
   cursor: pointer;
-}
-
-.fade {
-  opacity: 50%;
 }

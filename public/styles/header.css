@@ -1,5 +1,5 @@
 header.top {
-  padding-top: 120px;
+  padding-top: 140px;
   height: 520px;
   width: 100%;
   display: flex;
@@ -10,9 +10,7 @@ header.top {
   background-image: url('../images/bg-leaves.png');
 }
 
-h2.name {
+.light {
   font-weight: normal;
   color: white;
-  padding: 0;
-  margin: 0;
 }
