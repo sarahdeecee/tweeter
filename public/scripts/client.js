@@ -143,7 +143,7 @@ $(document).ready(function() {
   let windowsize = $(window).width();
   $(window).bind('resize', function() {
     windowsize = $(window).width();
-    if (windowsize < 1024) {
+    if (windowsize < 1024 && windowsize > 420) {
       $('.fadenav').css('opacity', 1);
     }
     $(window).bind('scroll', changeNavOpacity);
