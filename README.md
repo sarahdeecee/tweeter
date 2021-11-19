@@ -16,6 +16,7 @@ I hope you're eggs-sighted to start Tweeting!
 
 - Share your tweets by posting them in the text box
 - Your tweets show up on the page without the need to refresh
+- Your tweet comes with a time stamp so you'll never forget when you posted it
 - Click the "Write a new tweet" button on the navigation bar to show or hide the text box
 - Once you scroll down, a handle arrow will appear! Click it to get back to the top
 - The responsive layout adapts to the size of your screen
@@ -32,5 +33,5 @@ I hope you're eggs-sighted to start Tweeting!
 
 - Clone the repository onto your local system.
 - Install all dependencies using the `npm install` command.
-- Run the development web server using the `npm run local' command.
+- Run the development web server using the `npm run local` command.
 - Open `http://localhost:8080/` in your browser.
