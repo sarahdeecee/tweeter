@@ -10,7 +10,7 @@ html {
 body {
   color: #104a73;
   background-color: #bdcdde;
-  font-size: 32px;
+  font-size: 24px;
   font-family: 'Source Sans Pro', Sans-serif;
 }
 
@@ -19,7 +19,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 1em 5% 1em 5%;
+  padding: 1em 1em 0 1em;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }

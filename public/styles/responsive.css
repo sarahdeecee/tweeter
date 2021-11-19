@@ -3,7 +3,7 @@
 /* Layout and styling changed for screens with maximum width of 420px (smartphones)*/
 @media only screen and (max-width: 420px) {
   body {
-    font-size: 18pt;
+    font-size: 12pt;
   }
 
   main {
@@ -42,7 +42,7 @@
   
   footer {
     padding: 0.5em 0.5em 0 0.5em;
-    font-size: 12pt;
+    font-size: 8pt;
   }
   
   img.profile {
@@ -57,7 +57,7 @@
   }
   
   p {
-    font-size: 16pt;
+    font-size: 12pt;
   }
   
   article {
@@ -93,16 +93,16 @@
 /* Layout and styling changed for screens with minimum width of 1024px (laptops/desktops)*/
 @media only screen and (min-width: 1024px) {
   #navbar {
-    font-size: 36pt;
+    font-size: 32pt;
     padding: 0;
   }
   
   header.top {
-    padding-top: 120px;
-    width: 33%;
+    padding-top: 140px;
+    width: 25%;
     height: 100%;
     position: fixed;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     overflow-wrap: break-word;
   }
   
@@ -110,12 +110,12 @@
     display: flex;
     flex-direction: row;
     padding: 0;
+    font-size: 16pt;
   }
   
   main {
     width: 100%;
-    margin: 120px 0 0 33%;
-    padding: 1em;
+    margin: 120px 0 0 25%;
   }
 
   #up-arrow {
@@ -127,7 +127,7 @@
   }
 
   #logo {
-    width: 33%;
+    width: 25%;
     text-align: center;
   }
 
@@ -137,5 +137,10 @@
 
   #tweet-text {
     height: 4em;
+  }
+
+  img.profile {
+    width: 200px;
+    height: 200px;
   }
 }

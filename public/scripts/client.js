@@ -95,7 +95,7 @@ $(document).ready(function() {
   loadTweets();
 
   $("#posttweet").submit(function(event) {
-    const charCount = $(event.target.text).serialize().length - 5;
+    const charCount = $('#tweet-text').val().length;
     $('#error').empty();
     if ($('#error').is(":hidden")) {
       $('#error').empty();
