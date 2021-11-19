@@ -8,6 +8,7 @@ header.top {
   align-items: center;
   background-color: #104a73;
   background-image: url('../images/bg-leaves.png');
+  overflow-wrap: break-word;
 }
 
 .light {

@@ -75,7 +75,7 @@
 /* Layout and styling changed for screens with minimum width of 1024px (laptops/desktops)*/
 @media only screen and (min-width: 1024px) {
   #navbar {
-    font-size: 42pt;
+    font-size: 36pt;
     padding: 0;
   }
   
@@ -85,6 +85,7 @@
     height: 100%;
     position: fixed;
     justify-content: space-evenly;
+    overflow-wrap: break-word;
   }
   
   body {
