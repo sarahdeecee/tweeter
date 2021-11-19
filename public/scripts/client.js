@@ -17,14 +17,14 @@ $(document).ready(function() {
     }
   };
   // Function to ensure tweet text is safe
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-  //Create Tweet Function to Create dynamically html elements  
+  //Create Tweet Function to Create dynamically html elements
   const createTweetElement = function(tweetObj) {
-    const createdTime = timeago.format(tweetObj.created_at);;
+    const createdTime = timeago.format(tweetObj.created_at);
     const tweetPage = $(`
       <article>
         <header>
@@ -44,10 +44,10 @@ $(document).ready(function() {
   // Load tweets by getting array of tweets from /tweets
   const loadTweets = () => {
     $.ajax('/tweets', { method: 'GET' })
-    .then(tweetsHTML => {
-      $('#tweets-container').empty();
-      renderTweets(tweetsHTML);
-    });
+      .then(tweetsHTML => {
+        $('#tweets-container').empty();
+        renderTweets(tweetsHTML);
+      });
     $('#error').empty();
     $('#error').hide();
     $('.new-tweet').hide();
@@ -59,14 +59,14 @@ $(document).ready(function() {
     $.post('/tweets', $tweetText).then(() => {
       $('#tweet-text').val(''); //clears textarea
       loadTweets();
-    })
+    });
   };
 
   // Returns an error message depending on character count of textarea
   const errorMsg = function(num) {
     let message = "";
     if (!num)  {
-      message = "You forgot to enter some text!"
+      message = "You forgot to enter some text!";
     } else if (num > 140) {
       message = "Please shorten your thoughts to 140 characters or less!";
     }
@@ -97,7 +97,7 @@ $(document).ready(function() {
   $("#posttweet").submit(function(event) {
     const charCount = $(event.target.text).serialize().length - 5;
     $('#error').empty();
-    if ( $('#error').is(":hidden") ) {
+    if ($('#error').is(":hidden")) {
       $('#error').empty();
     } else {
       $('#error').hide();
@@ -118,12 +118,12 @@ $(document).ready(function() {
     $('.new-tweet').slideToggle("fast", function() {
       $('#tweet-text').focus();
     });
-  })
+  });
 
   // Scrolls to the top of the page
   $("#up-arrow").on("click", function() {
     $("html, body").animate({scrollTop: 0});
-  })
+  });
 
   // Change navbar opacity and up-arrow opacity upon scrolling
   $(window).bind('scroll', changeNavOpacity, function() {
