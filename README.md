@@ -5,9 +5,9 @@ Tweeter is a simple, single-page Twitter clone that runs on your local system.
 I hope you're eggs-sighted to start Tweeting!
 
 ## Running Tweeter
-[Tweeter on a large screen]('/public/images/screenshot-big.png)
-[Tweeter on a medium screen]('/public/images/screenshot-med.png)
-[Tweeter on mobile]('/public/images/screenshot-mobile.png)
+!["Tweeter on a large screen"]('/public/images/screenshot-big.png)
+!["Tweeter on a medium screen"]('/public/images/screenshot-med.png)
+!["Tweeter on mobile"]('/public/images/screenshot-mobile.png)
 
 ## Features
 
