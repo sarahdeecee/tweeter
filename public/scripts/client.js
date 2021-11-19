@@ -139,8 +139,6 @@ $(document).ready(function() {
     $('#up-arrow').css('opacity', opacity);
   });
 
-  $(window).bind('scroll', changeNavOpacity);
-
   // update navbar opcaity on resize
   let windowsize = $(window).width();
   $(window).bind('resize', function() {
