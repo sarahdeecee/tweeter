@@ -139,7 +139,7 @@ $(document).ready(function() {
     $('#up-arrow').css('opacity', opacity);
   });
 
-  // update navbar opcaity on resize
+  // update navbar opacity on resize
   let windowsize = $(window).width();
   $(window).bind('resize', function() {
     windowsize = $(window).width();
